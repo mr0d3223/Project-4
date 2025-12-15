@@ -1,9 +1,14 @@
 :root{
-  --bg: #e6d9b8;
-  --bar: #2d80b9;
-  --ok: #1a8d1a;
-  --bad:#cc0000;
-  --shadow: rgba(0,0,0,.12);
+  --bg: #f6f2e6;          /* lighter warm background (more contrast) */
+  --panelText: #1f2937;   /* dark slate text */
+
+  --bar: #0b5fa5;         /* deeper blue */
+  --barText: #ffffff;     /* white text on blue */
+
+  --ok: #16a34a;          /* brighter green */
+  --bad: #dc2626;         /* brighter red */
+
+  --shadow: rgba(0,0,0,.14);
 }
 
 *{ box-sizing:border-box; }
@@ -12,8 +17,8 @@ html, body{
   height:100%;
   margin:0;
   background: var(--bg);
-  color:#000;
-  font-family: "Times New Roman", Times, serif;
+  color: var(--panelText);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
 .page{
@@ -24,6 +29,7 @@ html, body{
   padding:18px;
 }
 
+/* LEFT */
 .left{
   width: 42%;
   min-width: 380px;
@@ -32,9 +38,9 @@ html, body{
 
 .heading{
   margin: 0 0 14px 0;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1.1;
 }
 
 .bars{
@@ -44,46 +50,53 @@ html, body{
 
 .bar{
   background: var(--bar);
-  margin: 8px 0;
-  padding: 7px 10px 6px;
-  border-radius: 2px;
-  box-shadow: 0 1px 0 var(--shadow);
+  margin: 10px 0;
+  padding: 10px 12px;
+  border-radius: 10px;             /* more presentable */
+  box-shadow: 0 6px 16px var(--shadow);
 }
 
 .bar .q{
-  font-size: 18px;
-  font-weight: 700;
-  color:#000;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--barText);           /* strong contrast */
 }
 
 .bar .a{
-  margin-top: 2px;
-  font-size: 18px;
-  font-weight: 700;
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
 }
 
-.bar .a.ok{ color: var(--ok); }
-.bar .a.bad{ color: var(--bad); }
+/* result text is bright and readable on deep blue */
+.bar .a.ok{ color: #bbf7d0; }      /* light green (pops on blue) */
+.bar .a.bad{ color: #fecaca; }     /* light red (pops on blue) */
 
 .finalScore{
   margin-top: 34px;
-  font-size: 76px;
+  font-size: 64px;
   font-weight: 900;
-  line-height: 0.95;
+  line-height: 1.0;
+  color: #111827;
 }
 
 .restart{
   margin-top: 14px;
   padding: 10px 16px;
-  background: var(--bar);
+  background: #111827;             /* dark button */
+  color: #ffffff;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: 800;
   font-size: 16px;
-  box-shadow: 0 2px 0 var(--shadow);
+  box-shadow: 0 6px 16px var(--shadow);
 }
 
+.restart:hover{ filter: brightness(1.05); }
+
+/* RIGHT / MAP */
 .right{
   flex:1;
   display:flex;
@@ -92,7 +105,7 @@ html, body{
 .map{
   width:100%;
   height:100%;
-  background:#ddd;
-  border-radius: 2px;
-  box-shadow: 0 2px 0 var(--shadow);
+  background:#e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px var(--shadow);
 }
